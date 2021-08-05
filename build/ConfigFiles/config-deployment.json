@@ -1,6 +1,6 @@
 {
-  "webRoot":"/Volumes/Data/Inetpub/wwwroot",
-  "currentSite": "id",
+  "webRoot":"/Volumes/Data/Projects/Niteco/Heineken/wwwroot",
+  "currentSite": "my",
   "sites": [
     {
       "site": "id",

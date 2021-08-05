@@ -15,4 +15,8 @@
     <PackageDownload Include="GitVersion.Tool" Version="[5.6.7]" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Tasks" />
+  </ItemGroup>
+
 </Project>

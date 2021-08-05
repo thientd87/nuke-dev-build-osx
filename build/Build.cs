@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Configurations;
 using Nuke.Common;
 using Nuke.Common.CI;
 using Nuke.Common.Execution;
@@ -25,7 +26,7 @@ class Build : NukeBuild
     ///   - Microsoft VisualStudio     https://nuke.build/visualstudio
     ///   - Microsoft VSCode           https://nuke.build/vscode
 
-    public static int Main () => Execute<Build>(x => x.Compile);
+    public static int Main () => Execute<Build>(x => x.Default);
 
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
     readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
@@ -37,34 +38,61 @@ class Build : NukeBuild
     AbsolutePath SourceDirectory => RootDirectory / "src";
     AbsolutePath TestsDirectory => RootDirectory / "tests";
     AbsolutePath OutputDirectory => RootDirectory / "output";
+    
+    
+    readonly Tool Git;
 
-    Target Clean => _ => _
-        .Before(Restore)
+    AbsolutePath ConfigFilesDirectory => RootDirectory / "build" / "ConfigFiles";
+
+    PlatformConfiguration platformConfiguration { get; set; }
+
+    DeploymentConfiguration deployConfiguration { get; set; }
+
+    WorkingSpaceConfiguration workingSpaceConfiguration { get; set; }
+
+    ProjectConfiguration projectConfiguration { get; set; }
+
+    AzureDevOpsInfo azureDevOpsInfo { get; set; }
+    protected override void OnBuildCreated()
+    {
+        platformConfiguration = SerializationTasks.JsonDeserializeFromFile<PlatformConfiguration>(ConfigFilesDirectory / "config-platform.json");
+        deployConfiguration = SerializationTasks.JsonDeserializeFromFile<DeploymentConfiguration>(ConfigFilesDirectory / "config-deployment.json");
+        workingSpaceConfiguration = SerializationTasks.JsonDeserializeFromFile<WorkingSpaceConfiguration>(ConfigFilesDirectory / "config-workingspace.json");
+        projectConfiguration = SerializationTasks.JsonDeserializeFromFile<ProjectConfiguration>(ConfigFilesDirectory / "config-project.json");
+        azureDevOpsInfo = SerializationTasks.JsonDeserializeFromFile<AzureDevOpsInfo>(ConfigFilesDirectory / "config-azureDevOpsInfo.json");
+        projectConfiguration.AzureDevOpsInfo = azureDevOpsInfo;
+
+        deployConfiguration.WebRoot = RootDirectory.Parent / "wwwroot";
+        workingSpaceConfiguration.WorkingSpace = RootDirectory.Parent / "hot-dev";
+        workingSpaceConfiguration.ProjectConfiguration = projectConfiguration;
+
+        deployConfiguration.ConfigureSites();
+    }
+    Target CodeInitialization => _ => _
         .Executes(() =>
         {
-            SourceDirectory.GlobDirectories("**/bin", "**/obj").ForEach(DeleteDirectory);
-            TestsDirectory.GlobDirectories("**/bin", "**/obj").ForEach(DeleteDirectory);
-            EnsureCleanDirectory(OutputDirectory);
+            Tasks.CodeInitialization.Init()
+                .WithWorkingSpaceConfiguration(workingSpaceConfiguration)
+                .WithProjectConfiguration(projectConfiguration)
+                .Run();
         });
-
-    Target Restore => _ => _
+    Target Infrastructure => _ => _
         .Executes(() =>
         {
-            DotNetRestore(s => s
-                .SetProjectFile(Solution));
+            Tasks.Infrastructure.Init()
+                .WithDeploymentConfiguration(deployConfiguration.CurrentSiteConfiguration)
+                .Install();
         });
-
-    Target Compile => _ => _
-        .DependsOn(Restore)
+    
+    Target Default => _ => _
+        .DependsOn
+        (
+            CodeInitialization,
+            Infrastructure
+        )
         .Executes(() =>
         {
-            DotNetBuild(s => s
-                .SetProjectFile(Solution)
-                .SetConfiguration(Configuration)
-                .SetAssemblyVersion(GitVersion.AssemblySemVer)
-                .SetFileVersion(GitVersion.AssemblySemFileVer)
-                .SetInformationalVersion(GitVersion.InformationalVersion)
-                .EnableNoRestore());
+
         });
 
 }
