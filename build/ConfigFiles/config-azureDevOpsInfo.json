@@ -1,0 +1,9 @@
+{
+  "PersonalAccessToken": "",
+  "NugetFeedUrl": "https://pkgs.dev.azure.com/heineken/B2B-DOT-APAC-Development/_packaging/hot-nuget-service/nuget/v3/index.json",
+  "NugetFeedName": "apac-nuget-service",
+  "HotNugetFeedUrl": "https://hot-nuget.azurewebsites.net/nuget",
+  "HotNugetFeedName": "hot-nuget-service",
+  "Organization": "heineken",
+  "ProjectName": "B2B-DOT-APAC-Development"
+}

@@ -1,0 +1,120 @@
+{
+    "platformVersion": "3.65.0",
+    "modules": [
+        {
+            "Id": "VirtoCommerce.AzureSearch",
+            "Name": "vc-module-azure-search",
+            "Version": "3.8.0"
+        },
+        {
+            "Id": "VirtoCommerce.BulkActionsModule",
+            "Name": "vc-module-bulk-actions",
+            "Version": "3.2.0"
+        },
+        {
+            "Id": "VirtoCommerce.Cart",
+            "Name": "vc-module-cart",
+            "Version": "3.18.0"
+        },
+        {
+            "Id": "VirtoCommerce.Catalog",
+            "Name": "vc-module-catalog",
+            "Version": "3.33.0"
+        },
+        {
+            "Id": "VirtoCommerce.CatalogCsvImportModule",
+            "Name": "vc-module-catalog-csv-import",
+            "Version": "3.17.0"
+        },
+        {
+            "Id": "VirtoCommerce.CatalogPersonalization",
+            "Name": "vc-module-catalog-personalization",
+            "Version": "3.9.0"
+        },
+        {
+            "Id": "VirtoCommerce.Core",
+            "Name": "vc-module-core",
+            "Version": "3.17.0"
+        },
+        {
+            "Id": "VirtoCommerce.Customer",
+            "Name": "vc-module-customer",
+            "Version": "3.17.0"
+        },
+        {
+            "Id": "VirtoCommerce.EventBus",
+            "Name": "vc-module-event-bus",
+            "Version": "1.0.0"
+        },
+        {
+            "Id": "VirtoCommerce.Export",
+            "Name": "vc-module-export",
+            "Version": "3.12.0"
+        },
+        {
+            "Id": "VirtoCommerce.GoogleEcommerceAnalytics",
+            "Name": "vc-module-google-ecommerce-analytics",
+            "Version": "3.1.0"
+        },
+        {
+            "Id": "VirtoCommerce.ImageTools",
+            "Name": "vc-module-image-tools",
+            "Version": "3.11.0"
+        },
+        {
+            "Id": "VirtoCommerce.Inventory",
+            "Name": "vc-module-inventory",
+            "Version": "3.17.0"
+        },
+        {
+            "Id": "VirtoCommerce.Marketing",
+            "Name": "vc-module-marketing",
+            "Version": "3.22.0"
+        },
+        {
+            "Id": "VirtoCommerce.Notifications",
+            "Name": "vc-module-notification",
+            "Version": "3.15.0"
+        },
+        {
+            "Id": "VirtoCommerce.Orders",
+            "Name": "vc-module-order",
+            "Version": "3.32.0"
+        },
+        {
+            "Id": "VirtoCommerce.Payment",
+            "Name": "vc-module-payment",
+            "Version": "3.7.0"
+        },
+        {
+            "Id": "VirtoCommerce.Pricing",
+            "Name": "vc-module-pricing",
+            "Version": "3.16.0"
+        },
+        {
+            "Id": "VirtoCommerce.Search",
+            "Name": "vc-module-search",
+            "Version": "3.12.0"
+        },
+        {
+            "Id": "VirtoCommerce.Shipping",
+            "Name": "vc-module-shipping",
+            "Version": "3.6.0"
+        },
+        {
+            "Id": "VirtoCommerce.Store",
+            "Name": "vc-module-store",
+            "Version": "3.19.0"
+        },
+        {
+            "Id": "VirtoCommerce.Tax",
+            "Name": "vc-module-tax",
+            "Version": "3.6.0"
+        },
+        {
+            "Id": "VirtoCommerce.ElasticSearchModule",
+            "Name": "vc-module-elastic-search",
+            "Version": "3.4.0"
+        }
+    ]
+}

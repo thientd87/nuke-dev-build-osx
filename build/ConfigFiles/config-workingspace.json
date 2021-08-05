@@ -1,0 +1,9 @@
+{
+    "workingSpace" : "/Volumes/Data/Projects/Niteco/Heineken", 
+    "BuildToolVersions" : "VS2019",
+    "SqlServerAddress": "localhost",
+    "SqlServerSAPassword": "123qweASD",
+    "DatabaseName": "HeinekenNitecoGlobalV3",
+    "BakPath": "/Volumes/Data/Projects/Niteco/Heineken/dev-build/HeinekenNitecoGlobalV3.bak",
+    "ElasticSearchAddress": "localhost:9200"
+}

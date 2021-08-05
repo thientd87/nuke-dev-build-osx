@@ -1,0 +1,54 @@
+{
+    "HotModules": [
+        "hot-module-cart 3.7.0",
+        "hot-module-catalog 3.0.18",
+        "hot-module-cms 3.3.1",
+        "hot-module-commerce 3.0.5",
+        "hot-module-core 3.0.44",
+        "hot-module-customers v3.12.2.4",
+        "hot-module-export-import v3.0.0",
+        "hot-module-helpdesk 3.0.2",
+        "hot-module-holidays 3.0.1",
+        "hot-module-integration 3.2.14",
+        "hot-module-inventory 3.1.3",
+        "hot-module-loyalty 3.0.9",
+        "hot-module-marketing 3.10.1",
+        "hot-module-notifications 3.4.0",
+        "hot-module-order 3.17.7.1",
+        "hot-module-payments 3.0.11",
+        "hot-module-pricing 3.1.3",
+        "hot-module-security 3.1.5",
+        "hot-module-sms-providers v3.0.0",
+        "hot-module-store v3.3.1.1",
+        "hot-module-taxes 3.0.1"
+    ],
+    "HeinekenApacModules": [
+      "apac-module-core",
+      "apac-module-order",
+      "apac-module-catalog",
+      "apac-module-helpdesk",
+      "apac-module-store",
+      "apac-module-customer",
+      "apac-module-cart",
+      "apac-module-integration",
+      "apac-module-marketing",
+      "apac-module-notifications",
+      "apac-module-payments",
+      "apac-module-pricing"
+    ],
+    "HotStorefrontCore": "hot-storefront-core",
+    "HotStorefrontCoreSecretKey": "",
+    "HotThemeNx": "hot-theme-nx",
+    "HotSettings": "hot-settings",
+    "BaseThemeName": "all-stores",
+    "UseGithub": false,
+    "GithubInfo": {
+        "ApiToken": "oakdk4plz2mshouagsjnbekxbtuikpgp7dr7l7jlx2bldxh5373q",
+        "Organization": "heineken-order-transfer"
+    },
+    "AzureDevOpsInfo": {
+       "PersonalAccessToken" : "oakdk4plz2mshouagsjnbekxbtuikpgp7dr7l7jlx2bldxh5373q",
+       "Organization": "heineken",
+       "ProjectName": "B2B-DOT-APAC-Development"
+    }
+}

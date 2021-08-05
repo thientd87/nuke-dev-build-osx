@@ -1,0 +1,27 @@
+{
+  "webRoot":"/Volumes/Data/Inetpub/wwwroot",
+  "currentSite": "id",
+  "sites": [
+    {
+      "site": "id",
+      "storefrontSiteName": "hot.storefront.local.id.v3",
+      "commerceSiteName": "hot.admin.local.id.v3",
+      "themeBuildProfile": "build:prod:ID1",
+      "hotSettingsFolder": "ID1"
+    },
+    {
+      "site": "sg",
+      "storefrontSiteName": "hot.storefront.local.sg.v3",
+      "commerceSiteName": "hot.admin.local.sg.v3",
+      "themeBuildProfile": "build:prod:SG1",
+      "hotSettingsFolder": "SG1"
+    },
+    {
+      "site": "my",
+      "storefrontSiteName": "hot.storefront.local.my.v3",
+      "commerceSiteName": "hot.admin.local.my.v3",
+      "themeBuildProfile": "build:prod:MY1",
+      "hotSettingsFolder": "MY1"
+    }
+  ]
+}
