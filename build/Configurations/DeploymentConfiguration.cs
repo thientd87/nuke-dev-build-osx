@@ -28,6 +28,8 @@ namespace Configurations
         public string CommerceAssetsPhysicalPath => $"{CommerceDeployPath}/assets";
 
         public AbsolutePath CommerceModulesPhysicalPath => CommerceDeployPath / "Modules";
+        public AbsolutePath CommerceLogPhysicalPath => CommerceDeployPath / "Logs";
+        public AbsolutePath StoreFrontLogPhysicalPath => StorefrontDeployPath / "Logs";
 
         public List<string> RequireFoldersExisting => new List<string> {
             $"{CommerceDeployPath}/App_Data",

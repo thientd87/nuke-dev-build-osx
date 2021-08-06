@@ -83,12 +83,26 @@ class Build : NukeBuild
                 .WithDeploymentConfiguration(deployConfiguration.CurrentSiteConfiguration)
                 .Install();
         });
-    
+    Target VirtoCommercePlatform => _ => _
+        .After
+        (
+            Infrastructure
+        )
+        .Executes(() =>
+        {
+            Tasks.VirtoCommercePlatform.Init()
+                .WithDeploymentConfiguration(deployConfiguration.CurrentSiteConfiguration)
+                .WithPlatformConfiguration(platformConfiguration)
+                .WithProjectConfiguration(projectConfiguration)
+                .WithWorkingSpaceConfiguration(workingSpaceConfiguration)
+                .Install();
+        });
     Target Default => _ => _
         .DependsOn
         (
             CodeInitialization,
-            Infrastructure
+            Infrastructure,
+            VirtoCommercePlatform
         )
         .Executes(() =>
         {
