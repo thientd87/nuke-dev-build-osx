@@ -96,13 +96,30 @@ class Build : NukeBuild
                 .WithProjectConfiguration(projectConfiguration)
                 .WithWorkingSpaceConfiguration(workingSpaceConfiguration)
                 .Install();
+         });
+    
+    Target VirtoCommerceModules => _ => _
+        .After
+        (
+            Infrastructure,
+            VirtoCommercePlatform
+        )
+        .Executes(() =>
+        {
+            Tasks.VirtoCommerceModules.Init()
+                .WithDeploymentConfiguration(deployConfiguration.CurrentSiteConfiguration)
+                .WithPlatformConfiguration(platformConfiguration)
+                .WithWorkingSpaceConfiguration(workingSpaceConfiguration)
+                .Install();
         });
+    
     Target Default => _ => _
         .DependsOn
         (
             CodeInitialization,
             Infrastructure,
-            VirtoCommercePlatform
+            VirtoCommercePlatform,
+            VirtoCommerceModules
         )
         .Executes(() =>
         {

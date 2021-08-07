@@ -74,6 +74,7 @@
               "CodeInitialization",
               "Default",
               "Infrastructure",
+              "VirtoCommerceModules",
               "VirtoCommercePlatform"
             ]
           }
@@ -91,6 +92,7 @@
               "CodeInitialization",
               "Default",
               "Infrastructure",
+              "VirtoCommerceModules",
               "VirtoCommercePlatform"
             ]
           }
