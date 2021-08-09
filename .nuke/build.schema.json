@@ -73,7 +73,11 @@
             "enum": [
               "CodeInitialization",
               "Default",
+              "HeinekenApacModules",
               "HotModules",
+              "HotSettings",
+              "HotStorefrontCore",
+              "HotThemeNx",
               "Infrastructure",
               "VirtoCommerceModules",
               "VirtoCommercePlatform"
@@ -92,7 +96,11 @@
             "enum": [
               "CodeInitialization",
               "Default",
+              "HeinekenApacModules",
               "HotModules",
+              "HotSettings",
+              "HotStorefrontCore",
+              "HotThemeNx",
               "Infrastructure",
               "VirtoCommerceModules",
               "VirtoCommercePlatform"

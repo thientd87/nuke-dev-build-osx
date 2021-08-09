@@ -16,4 +16,8 @@
     <PackageDownload Include="GitVersion.Tool" Version="[5.6.7]" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Tasks\DatabaseInitialization.cs" />
+  </ItemGroup>
+
 </Project>

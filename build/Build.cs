@@ -130,6 +130,68 @@ class Build : NukeBuild
                 .Install();
         });
     
+    Target HeinekenApacModules => _ => _
+        .After
+        (
+            Infrastructure,
+            CodeInitialization,
+            VirtoCommercePlatform,
+            HotModules
+        )
+        .Executes(() =>
+        {
+            Tasks.HeinekenApacModules.Init()
+                .WithDeploymentConfiguration(deployConfiguration.CurrentSiteConfiguration)
+                .WithProjectConfiguration(projectConfiguration)
+                .WithWorkingSpaceConfiguration(workingSpaceConfiguration)
+                .Install();
+        });
+    
+    
+    Target HotStorefrontCore => _ => _
+        .After
+        (
+            Infrastructure,
+            CodeInitialization
+        )
+        .Executes(() =>
+        {
+            Tasks.HotStorefrontCore.Init()
+                .WithDeploymentConfiguration(deployConfiguration.CurrentSiteConfiguration)
+                .WithProjectConfiguration(projectConfiguration)
+                .WithWorkingSpaceConfiguration(workingSpaceConfiguration)
+                .Install();
+        });
+
+    Target HotThemeNx => _ => _
+        .After
+        (
+            Infrastructure,
+            CodeInitialization
+        )
+        .Executes(() =>
+        {
+            Tasks.HotThemeNx.Init()
+                .WithDeploymentConfiguration(deployConfiguration.CurrentSiteConfiguration)
+                .WithProjectConfiguration(projectConfiguration)
+                .WithWorkingSpaceConfiguration(workingSpaceConfiguration)
+                .Install();
+        });
+    Target HotSettings => _ => _
+        .After
+        (
+            HotStorefrontCore,
+            Infrastructure,
+            CodeInitialization
+        )
+        .Executes(() =>
+        {
+            Tasks.HotSettings.Init()
+                .WithDeploymentConfiguration(deployConfiguration.CurrentSiteConfiguration)
+                .WithProjectConfiguration(projectConfiguration)
+                .WithWorkingSpaceConfiguration(workingSpaceConfiguration)
+                .Install();
+        });
     
     Target Default => _ => _
         .DependsOn
@@ -138,7 +200,10 @@ class Build : NukeBuild
             Infrastructure,
             VirtoCommercePlatform,
             VirtoCommerceModules,
-            HotModules
+            HotModules,
+            HeinekenApacModules, HotStorefrontCore,
+            HotThemeNx,
+            HotSettings
         )
         .Executes(() =>
         {
