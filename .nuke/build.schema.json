@@ -73,6 +73,7 @@
             "enum": [
               "CodeInitialization",
               "Default",
+              "HotModules",
               "Infrastructure",
               "VirtoCommerceModules",
               "VirtoCommercePlatform"
@@ -91,6 +92,7 @@
             "enum": [
               "CodeInitialization",
               "Default",
+              "HotModules",
               "Infrastructure",
               "VirtoCommerceModules",
               "VirtoCommercePlatform"

@@ -15,8 +15,7 @@ namespace Helpers
         }
 
 
-        public static bool CreateSymbolicLink(string lpSymlinkFileName, string lpTargetFileName,
-            SymbolicLink dwFlags)
+        public static bool CreateSymbolicLink(string lpSymlinkFileName, string lpTargetFileName)
         {
             return obj.SymlinkCreate(lpTargetFileName, lpSymlinkFileName);
         }

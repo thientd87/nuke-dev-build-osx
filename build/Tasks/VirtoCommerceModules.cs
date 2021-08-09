@@ -208,7 +208,7 @@ namespace Tasks
 
                     Logger.Info($"Deploying Module - {moduleId}");
 
-                    LinkHelper.CreateSymbolicLink(linkFolderPath, source, LinkHelper.SymbolicLink.Directory);
+                    LinkHelper.CreateSymbolicLink(linkFolderPath, source);
                 }
             }
         }
