@@ -196,7 +196,7 @@ class Build : NukeBuild
     Target Default => _ => _
         .DependsOn
         (
-            CodeInitialization,
+            //CodeInitialization,
             Infrastructure,
             VirtoCommercePlatform,
             VirtoCommerceModules,

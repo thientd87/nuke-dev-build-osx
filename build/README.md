@@ -26,6 +26,8 @@ This tool is based on http://www.nuke.build, which built on .net core framework.
    Run in this command in terminal   
    dotnet nuget add source https://pkgs.dev.azure.com/heineken/B2B-DOT-APAC-Development/_packaging/hot-nuget-service/nuget/v3/index.json -n hot-nugget-service-2 -u <YOUR-NITECO-EMAIL@niteco.se> -p <YOUR-PAT> --store-password-in-clear-text
    
+   Reference : https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-add-source
+   
 Double check nuget.config(usually it is in ~/users/<your-user-name>/.nuget/Nuget/NuGet.Config) file to make sure it has this block
 <packageSourceCredentials>
 <hot-nugget-service>
@@ -44,16 +46,15 @@ Double check nuget.config(usually it is in ~/users/<your-user-name>/.nuget/Nuget
     - Only build platform: nuke --target VirtoCommercePlatform --skip=Infrastructure
     - Only build modules (include virto, hot and apac modules): nuke --target HeinekenApacModules --skip=Infrastructure,VirtoCommercePlatform
    
-8. Restore Database to Docker 
-   - Copy file HeinekenNitecoGlobalV3.bak to MacOS user root folder
+8. Restore Database to Docker
    - Follow this guide
      https://www.c-sharpcorner.com/article/restoring-a-sql-server-database-in-docker/
    
 9. Start web app process
    - Goto wwwroot/<SITE-NAME> deployment folder --> Open terminal at this folder
-   - Run command : dotnet VirtoCommerce.Platform.Web.dll (for admin site)
-   or 
-     dotnet VirtoCommerce.Storefront.dll (for public site)
+   - Run command : dotnet VirtoCommerce.Platform.Web.dll --urls "http://localhost:10645;https://localhost:10646/" (for admin site)
+   or
+     dotnet VirtoCommerce.Storefront.dll --urls "http://localhost:2082;https://localhost:2083/" (for public site)
      
 10. Start Apache Virtual host
   Run command
@@ -77,3 +78,27 @@ GOTO BROWSER and RUN WEBSITE
     
     
 2. Understanding about Kestrel , Virtual Host and Enable APACHE virtual host on MACOS
+
+3. Restore DB
+   - If you get error "No such folder/file or Can not find folder/file BAK" --> Copy file HeinekenNitecoGlobalV3.bak to MacOS user root folder
+   - After copy file bak to docker, can use Azure data studio to restore back file.
+   
+4. MACOS Environment
+   - Global language support.
+   Change code "VirtoCommerce.Storefront.Model.Language" line 32
+     From 
+         var regionInfo = new RegionInfo(culture.LCID);
+     To
+         var regionInfo = new RegionInfo(culture.Name);
+
+https://andrewlock.net/dotnet-core-docker-and-cultures-solving-culture-issues-porting-a-net-core-app-from-windows-to-linux/
+
+   - File Path of Content Blob
+   Appsetting.config
+     Change ConnectionStrings.ContentConnectionString
+     rootPath: should repleace "/" by "\\"( make sure it end with "\\")
+  Change code "VirtoCommerce.Storefront.Domain.FileSystemContentBlobProvider"
+     Remove ".TrimEnd('\') + '\';" line 34
+     Code shoule be : var rootPath = _options.Path;//TrimEnd('\') + '\';
+     
+

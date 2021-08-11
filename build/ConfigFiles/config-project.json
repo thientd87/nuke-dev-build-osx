@@ -43,11 +43,11 @@
     "BaseThemeName": "all-stores",
     "UseGithub": false,
     "GithubInfo": {
-        "ApiToken": "oakdk4plz2mshouagsjnbekxbtuikpgp7dr7l7jlx2bldxh5373q",
+        "ApiToken": "geo2p5fyzdldhlkk6b34rgle365ywursd6xulnu7ig7hy7676seq",
         "Organization": "heineken-order-transfer"
     },
     "AzureDevOpsInfo": {
-       "PersonalAccessToken" : "oakdk4plz2mshouagsjnbekxbtuikpgp7dr7l7jlx2bldxh5373q",
+       "PersonalAccessToken" : "geo2p5fyzdldhlkk6b34rgle365ywursd6xulnu7ig7hy7676seq",
        "Organization": "heineken",
        "ProjectName": "B2B-DOT-APAC-Development"
     }
